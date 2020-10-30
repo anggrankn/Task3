@@ -11,7 +11,7 @@ public class Line {
         this.a = a;
     }
 
-    public boolean isPointAbove(double x, double y) {
+    public boolean isPointOutside(double x, double y) {
         return y > a * (x - x0) + y0;
     }
 }

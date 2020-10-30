@@ -14,25 +14,25 @@ public class Picture {
     }
 
     public SimpleColor getColor(double x, double y) {
-        if (!circle.isPointAbove(x, y)) {
+        if (!circle.isPointOutside(x, y)) {
             return SimpleColor.ORANGE;
         }
-        if (!verticalParabola2.isPointAbove(x, y) && line.isPointAbove(0, y) && verticalParabola1.isPointAbove(x, y)) {
+        if (!verticalParabola2.isPointOutside(x, y) && line.isPointOutside(0, y) && verticalParabola1.isPointOutside(x, y)) {
             return SimpleColor.GRAY;
         }
-        if (!verticalParabola2.isPointAbove(x, y) && line.isPointAbove(0, y) && !verticalParabola1.isPointAbove(x, y)) {
+        if (!verticalParabola2.isPointOutside(x, y) && line.isPointOutside(0, y) && !verticalParabola1.isPointOutside(x, y)) {
             return SimpleColor.YELLOW;
         }
-        if (!verticalParabola2.isPointAbove(x, y) && !line.isPointAbove(0, y) && verticalParabola1.isPointAbove(x, y)) {
+        if (!verticalParabola2.isPointOutside(x, y) && !line.isPointOutside(0, y) && verticalParabola1.isPointOutside(x, y)) {
             return SimpleColor.GREEN;
         }
-        if (verticalParabola2.isPointAbove(x, y) && !line.isPointAbove(0, y) && (x > 0)) {
+        if (verticalParabola2.isPointOutside(x, y) && !line.isPointOutside(0, y) && (x > 0)) {
             return SimpleColor.ORANGE;
         }
-        if (!line.isPointAbove(0, y) && !verticalParabola1.isPointAbove(x, y)) {
+        if (!line.isPointOutside(0, y) && !verticalParabola1.isPointOutside(x, y)) {
             return SimpleColor.WHITE;
         }
-        if (verticalParabola2.isPointAbove(x, y) && circle.isPointAbove(x, y) && line.isPointAbove(0, y)) {
+        if (verticalParabola2.isPointOutside(x, y) && circle.isPointOutside(x, y) && line.isPointOutside(0, y)) {
             return SimpleColor.BLUE;
         } else {
             return SimpleColor.BLUE;
