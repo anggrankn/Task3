@@ -1,41 +1,41 @@
 package com.company;
 
 public class Picture {
-    public final Circle Circle;
-    public final Line Line;
-    public final VerticalParabola VerticalParabola1;
-    public final VerticalParabola VerticalParabola2;
+    public final Circle circle;
+    public final Line line;
+    public final VerticalParabola verticalParabola1;
+    public final VerticalParabola verticalParabola2;
 
-    public Picture(Circle Circle, Line Line, VerticalParabola VerticalParabola1, VerticalParabola VerticalParabola2) {
-        this.Circle = Circle;
-        this.Line = Line;
-        this.VerticalParabola1 = VerticalParabola1;
-        this.VerticalParabola2 = VerticalParabola2;
+    public Picture() {
+        this.circle = new Circle(-5, 6, 3);
+        this.line = new Line(0, -4, 1);
+        this.verticalParabola1 = new VerticalParabola(-6, 3, -0.5);
+        this.verticalParabola2 = new VerticalParabola(0, 2, -0.25);
     }
 
     public SimpleColor getColor(double x, double y) {
-        if (!Circle.isPointAbove(x, y)) {
-            return SimpleColor.ORANGE;//area1
+        if (!circle.isPointAbove(x, y)) {
+            return SimpleColor.ORANGE;
         }
-        if (!VerticalParabola2.isPointAbove(x, y) && Line.isPointAbove(0, y) && VerticalParabola1.isPointAbove(x, y)) {
-            return SimpleColor.GRAY; //area2
+        if (!verticalParabola2.isPointAbove(x, y) && line.isPointAbove(0, y) && verticalParabola1.isPointAbove(x, y)) {
+            return SimpleColor.GRAY;
         }
-        if (!VerticalParabola2.isPointAbove(x, y) && Line.isPointAbove(0, y) && !VerticalParabola1.isPointAbove(x, y)) {
-            return SimpleColor.YELLOW; //area3
+        if (!verticalParabola2.isPointAbove(x, y) && line.isPointAbove(0, y) && !verticalParabola1.isPointAbove(x, y)) {
+            return SimpleColor.YELLOW;
         }
-        if (!VerticalParabola2.isPointAbove(x, y) && !Line.isPointAbove(0, y) && VerticalParabola1.isPointAbove(x, y)) {
-            return SimpleColor.GREEN; //area4
+        if (!verticalParabola2.isPointAbove(x, y) && !line.isPointAbove(0, y) && verticalParabola1.isPointAbove(x, y)) {
+            return SimpleColor.GREEN;
         }
-        if (VerticalParabola2.isPointAbove(x, y) && !Line.isPointAbove(0, y) && (x > 0)) {
-            return SimpleColor.ORANGE; //area5
+        if (verticalParabola2.isPointAbove(x, y) && !line.isPointAbove(0, y) && (x > 0)) {
+            return SimpleColor.ORANGE;
         }
-        if (!Line.isPointAbove(0, y) && !VerticalParabola1.isPointAbove(x, y)) {
-            return SimpleColor.WHITE; //area6
+        if (!line.isPointAbove(0, y) && !verticalParabola1.isPointAbove(x, y)) {
+            return SimpleColor.WHITE;
         }
-        if (VerticalParabola2.isPointAbove(x, y) && Circle.isPointAbove(x, y) && Line.isPointAbove(0, y)) {
-            return SimpleColor.BLUE; //area7
+        if (verticalParabola2.isPointAbove(x, y) && circle.isPointAbove(x, y) && line.isPointAbove(0, y)) {
+            return SimpleColor.BLUE;
         } else {
-            return SimpleColor.BLUE; //area8
+            return SimpleColor.BLUE;
         }
     }
 }
